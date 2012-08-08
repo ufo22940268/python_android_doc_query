@@ -24,20 +24,21 @@ def compose(url):
 def query_urls(key):
     conn = db.connect()
     c = conn.cursor()
-    c.execute("select link from data where lower(label) like '%{0}%'".format(key.lower()));
+    c.execute("select link, label from data where lower(label) like '%{0}%'".format(key.lower()));
 
-    urls = []
+    urls = {}
     row = c.fetchone()
     while row != None:
         full_url = compose(row[0])
-        urls.append(full_url)
+        label = row[1]
+        urls[label] = full_url
         row = c.fetchone()
     return urls
 
 def query_url_with_keyword(key):
     init()
     db_urls = query_urls(key)
-    print db_urls
+    return db_urls
 
 if __name__ == '__main__':
     query_url_with_keyword("textview")

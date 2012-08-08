@@ -1,18 +1,11 @@
 #!/usr/bin/python
 import sys
 import provider
-
-allowed_params = []
-def init():
-    global allowed_params
-    allowed_params = ["-m"]
+import os
 
 def print_help():
     print "error:", "".join([x + " " for x in sys.argv])
-    print '''Usage: androiddoc.py <options>
-
-    <options>
-        -q          The key word you want to query.'''
+    print '''Usage: androiddoc.py [keywords]'''
 
 def is_value_valide(str):
     if str == "":
@@ -26,30 +19,38 @@ def compile_args():
     argv = sys.argv
     if len(argv) <= 1:
         return None
-
-    params = {}
-    for i in range(1, len(argv), 2):
-        try:
-            if argv[i] in allowed_params: 
-                if is_value_valide(argv[i + 1]):
-                    params[argv[i]] = argv[i + 1] 
-                else:
-                    return None
-            else:
-                return None
-        except IndexError:
-            return None
-    if params == {}:
-        return None
     else:
-        return params
+        return argv[1]
+
+def prompt(urls):
+    keys = urls.keys()
+    prompt = ""
+    for i, v in zip(range(len(urls)), keys):
+        prompt +=  "\t[{0}]:\t{1}\n".format(str(i), v)
+    index = 0
+    prompt +=  "Which one(input the index number):\n"
+    while True:
+        line = raw_input(prompt)
+        if line.isdigit():
+            index = int(line)
+            break
+    open(urls[keys[index]])
+
+def get_prg():
+    '''TODO Open with xdg-open if the os isn't mac,
+        so webbrowser won't open on windows platform'''
+    if sys.platform == "darwin":
+        return "open"
+    else:
+        return "xdg-open"
+
+def open(url):
+    os.system(get_prg() + " " + url)
 
 if __name__ == '__main__':
-    init()
-    params = compile_args()
-    if params == None:
+    key = compile_args()
+    if key == None:
         print_help()
-    else:
-        print params
 
-    url = provider.query_url_with_keyword()
+    urls = provider.query_url_with_keyword(key)
+    prompt(urls)

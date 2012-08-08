@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+compile_args	main.py	/^def compile_args():$/;"	f
+compose	provider.py	/^def compose(url):$/;"	f
+connect	db.py	/^def connect():$/;"	f
+create_db	db.py	/^def create_db():$/;"	f
+data	importtodb.py	/^    data = []$/;"	v
+db	importtodb.py	/^import db$/;"	i
+db	provider.py	/^import db$/;"	i
+file	importtodb.py	/^    file = open("data.js", "r")$/;"	v
+init	provider.py	/^def init():$/;"	f
+is_value_valide	main.py	/^def is_value_valide(str):$/;"	f
+key	main.py	/^    key = compile_args()$/;"	v
+line	importtodb.py	/^        line = file.readline().rstrip()$/;"	v
+line	importtodb.py	/^    line = file.readline().rstrip()$/;"	v
+parse_line	importtodb.py	/^def parse_line(line):$/;"	f
+prefix	provider.py	/^prefix = ""$/;"	v
+print_help	main.py	/^def print_help():$/;"	f
+provider	main.py	/^import provider$/;"	i
+query_url_with_keyword	provider.py	/^def query_url_with_keyword(key):$/;"	f
+query_urls	provider.py	/^def query_urls(key):$/;"	f
+re	importtodb.py	/^import re$/;"	i
+read_prefix	provider.py	/^def read_prefix():$/;"	f
+sqlite3	db.py	/^import sqlite3$/;"	i
+sys	main.py	/^import sys$/;"	i
+url	main.py	/^    url = provider.query_url_with_keyword(key)$/;"	v
+write_to_db	importtodb.py	/^def write_to_db(data):$/;"	f
