@@ -58,6 +58,7 @@ if __name__ == '__main__':
     key = compile_args()
     if key == None:
         print_help()
+        exit(-1)
 
     urls = provider.query_url_with_keyword(key)
     prompt(urls)
