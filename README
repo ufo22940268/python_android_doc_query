@@ -12,3 +12,14 @@ android文档查询小工具
 vim配置：
     可以在vim中加入下面代码，使用vim自带文档查询功能。
     set keywordprg=<path_to_doc_query_directory>androiddoc
+
+
+
+
+注意：这款查询工具依赖于本地的android文档。所以要事先从官网上下载离线文档文件。
+    下载方式为：
+        1.运行avd manager
+        2.找到documentation
+        3.install package.
+
+    下载完之后，文档会放在sdk根目录下的docs文件夹内。
