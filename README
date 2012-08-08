@@ -1,0 +1,14 @@
+android文档查询小工具
+
+功能：
+    输入关键字，然后根据关键字去查询符合的java类。
+
+安装：
+    1.git clone https://github.com/ufo22940268/python_android_doc_query.git
+    2.cd python_android_doc_query
+    3.编辑config文件，输入android docs文件夹位置。比如android_docs_path=/Users/ccheng/program/android-sdk-macosx/docs
+    3.用androiddoc.py进行查询。比如./androiddoc.py activity
+
+vim配置：
+    可以在vim中加入下面代码，使用vim自带文档查询功能。
+    set keywordprg=<path_to_doc_query_directory>androiddoc
